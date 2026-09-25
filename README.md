@@ -72,6 +72,55 @@ Visualize the demodulated signal.
 
 Compare the original modulating signal with the demodulated signal.
 
+## CODE
+clc;
+clear;
+close;
+
+// Time
+t = 0:0.00001:0.01;
+
+// Message signal
+Am = 1;
+fm = 1000;
+m = Am*sin(2*%pi*fm*t);
+
+// Carrier signal
+Ac = 2;
+fc = 10000;
+c = Ac*cos(2*%pi*fc*t);
+
+// Modulation index
+mu = Am/Ac;
+
+// AM generation
+am = Ac*(1 + mu*sin(2*%pi*fm*t)) .* ...
+     cos(2*%pi*fc*t);
+
+// AM detection using envelope
+detected = abs(am);
+
+// Plot Message Signal
+subplot(3,1,1);
+plot(t,m);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Message Signal");
+
+// Plot Carrier Signal
+subplot(3,1,2);
+plot(t,c);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("Carrier Signal");
+
+// Plot AM Signal
+subplot(3,1,3);
+plot(t,am);
+xlabel("Time (s)");
+ylabel("Amplitude");
+title("AM Signal");
+
 # PROCEDURE
 
 * Refer Algorithms and write code for the experiment.
@@ -82,20 +131,27 @@ Compare the original modulating signal with the demodulated signal.
 * If any Error, correct it in code and execute again.
 * Verify the generated waveform using Tabulation and Model Waveform.
 
+# MODEL GRAPH
+<img width="503" height="350" alt="image" src="https://github.com/user-attachments/assets/939a5540-7b17-4dc2-8615-fcb78bf63c8c" />
+
 # TABULATION
 
-   
-   <img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/f0948126-4c97-4882-ae32-d46429cb366e" />
-
-# GRAPH:
-<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/f80b9b72-fb1c-4d98-adbd-d04c24a14b98" />
+<img width="1600" height="1209" alt="image" src="https://github.com/user-attachments/assets/63ad375e-0184-4b45-b6f5-13a80c51bbc5" />
 
 
 # CALCULATION
-<img width="899" height="1599" alt="image" src="https://github.com/user-attachments/assets/c9cb7a85-1b04-4542-9342-2a5f0bb285d7" />
+
+<img width="1600" height="991" alt="image" src="https://github.com/user-attachments/assets/1d70b0a8-da0e-406e-8d02-ed4df98f9c0e" />
 
 
-RESULT: Thus the amplitude modulation and demodulation is experimentally done and the output is verified. 
+# OUTPUT
+<img width="1146" height="629" alt="image" src="https://github.com/user-attachments/assets/96a6c069-b7c1-45d9-8abe-c9e241221129" />
+
+# RESULT
+
+Successfully generated and detected the amplitude modulation and demodulation using SCILAB and to calculate modulation index of AM.
+
+
 
 
 
